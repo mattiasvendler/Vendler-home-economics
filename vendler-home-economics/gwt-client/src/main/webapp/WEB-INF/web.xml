@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>se.vendler.client.App AppService</servlet-name>
+        <servlet-class>se.vendler.client.server.AppServiceImpl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>se.vendler.client.App AppService</servlet-name>
+        <url-pattern>/se.vendler.client.App/AppService</url-pattern>
+    </servlet-mapping>
+</web-app>
