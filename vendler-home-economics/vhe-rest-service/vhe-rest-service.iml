@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <module type="JAVA_MODULE" version="4">
+=======
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+>>>>>>> 1049f9fc717ba66d24318e0dd5a0e18cb7f12295
   <component name="FacetManager">
     <facet type="web" name="Web">
       <configuration>
