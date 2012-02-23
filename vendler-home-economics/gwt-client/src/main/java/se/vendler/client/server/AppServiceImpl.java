@@ -12,7 +12,12 @@ import se.vendler.client.client.AppService;
  */
 public class AppServiceImpl extends RemoteServiceServlet implements AppService{
     @Override
-    public String test() {
-        return "hej";
+    public String test(String s) {
+        return "hej "+s;
+    }
+
+    @Override
+    public String getSomething() {
+        return "Start värde";
     }
 }

@@ -10,32 +10,37 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import se.vendler.client.server.AppServiceImpl;
 
+import java.util.logging.Logger;
+
 public class App implements EntryPoint {
     private final AppServiceAsync appServiceAsync = GWT.create(AppService.class);
-//    private AppService appService = new AppServiceImpl();
-	public void onModuleLoad() {
-		Button button = new Button("Click me");
-        final TextBox textBox = new TextBox();
-		RootPanel.get("buttonContainer").add(button);
-        RootPanel.get("textBoxContainer").add(textBox);
+    private final Logger logger = Logger.getLogger("testlogger");
 
+
+    public void onModuleLoad() {
+        Button button = new Button("Click me");
+        final TextBox textBox = new TextBox();
+        textBox.setText("Start värde");
+        RootPanel.get("buttonContainer").add(button);
+        RootPanel.get("textBoxContainer").add(textBox);
         button.addClickHandler(new ClickHandler() {
+
             @Override
             public void onClick(ClickEvent event) {
-                appServiceAsync.test(new AsyncCallback<String>() {
+                appServiceAsync.test(textBox.getText(), new AsyncCallback<String>() {
+
                     @Override
                     public void onFailure(Throwable caught) {
-                        //To change body of implemented methods use File | Settings | File Templates.
+                        logger.info("failure");
                     }
 
                     @Override
                     public void onSuccess(String result) {
-                        AppService appService = new AppServiceImpl();
-                      textBox.setText(appService.test());
+                        textBox.setText(result);
                     }
-                }) ;
+                });
             }
         });
-	}
+    }
 
 }

@@ -9,8 +9,16 @@
         <servlet-name>se.vendler.client.App AppService</servlet-name>
         <servlet-class>se.vendler.client.server.AppServiceImpl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>se.vendler.client.App TableService</servlet-name>
+        <servlet-class>se.vendler.client.server.TableServiceImpl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>se.vendler.client.App AppService</servlet-name>
         <url-pattern>/se.vendler.client.App/AppService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>se.vendler.client.App TableService</servlet-name>
+        <url-pattern>/se.vendler.client.App/TableService</url-pattern>
     </servlet-mapping>
 </web-app>

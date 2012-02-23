@@ -6,9 +6,11 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 public interface AppServiceAsync {
-    void test(AsyncCallback<String> async);
+    void test(String s,AsyncCallback<String> async);
 
-      public static final class Util
+    void getSomething(AsyncCallback<String> async);
+
+    public static final class Util
     {
         private static AppServiceAsync instance;
 
