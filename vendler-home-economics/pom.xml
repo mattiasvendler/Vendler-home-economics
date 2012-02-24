@@ -37,5 +37,6 @@
     <modules>
         <module>gwt-client</module>
         <module>vhe-rest-service</module>
-    </modules>
+    <module>home-economics</module>
+  </modules>
 </project>
