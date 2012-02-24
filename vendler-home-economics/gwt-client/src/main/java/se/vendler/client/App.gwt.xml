@@ -6,6 +6,7 @@
     <!-- Specify the app entry point class.                   -->
     <entry-point class="se.vendler.client.client.App"/>
     <entry-point class="se.vendler.client.client.TableTest"/>
+    <entry-point class="se.vendler.client.client.Entries"/>
     <source path="client"/>
     <source path="server"/>
 </module>

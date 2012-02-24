@@ -13,6 +13,14 @@
         <servlet-name>se.vendler.client.App TableService</servlet-name>
         <servlet-class>se.vendler.client.server.TableServiceImpl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>se.vendler.client.Entries EntriesService</servlet-name>
+        <servlet-class>se.vendler.client.server.EntriesServiceImpl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>se.vendler.client.Entries EntriesService</servlet-name>
+        <url-pattern>/se.vendler.client.App/EntriesService</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>se.vendler.client.App AppService</servlet-name>
         <url-pattern>/se.vendler.client.App/AppService</url-pattern>

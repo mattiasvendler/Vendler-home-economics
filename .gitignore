@@ -7,3 +7,6 @@
 *.ipr
 *.iml
 *.iws
+*.jar
+*.war
+
