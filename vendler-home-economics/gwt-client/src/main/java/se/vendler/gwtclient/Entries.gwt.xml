@@ -3,6 +3,6 @@
 
     <inherits name='com.google.gwt.user.User'/>
 
-    <entry-point class='se.vendler.client.client.Entries'/>
+    <entry-point class='se.vendler.gwtclient.client.Entries'/>
      <source path="client"/>
 </module>

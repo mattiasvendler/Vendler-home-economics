@@ -1,7 +1,7 @@
-package se.vendler.client.server;
+package se.vendler.gwtclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import se.vendler.client.client.AppService;
+import se.vendler.gwtclient.client.AppService;
 
 /**
  * Created by IntelliJ IDEA.

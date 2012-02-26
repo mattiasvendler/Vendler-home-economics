@@ -1,14 +1,11 @@
-package se.vendler.client.client;
+package se.vendler.gwtclient.client;
 
-import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.view.client.ListDataProvider;
-import org.apache.commons.collections.map.StaticBucketMap;
 
-import java.security.PrivateKey;
 import java.util.Arrays;
 import java.util.List;
 

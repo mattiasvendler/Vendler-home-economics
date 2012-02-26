@@ -1,8 +1,7 @@
-package se.vendler.client.client;
+package se.vendler.gwtclient.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 public interface AppServiceAsync {

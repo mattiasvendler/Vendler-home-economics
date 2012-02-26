@@ -1,9 +1,8 @@
-package se.vendler.client.server;
+package se.vendler.gwtclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import se.vendler.client.client.EntriesService;
+import se.vendler.gwtclient.client.EntriesService;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

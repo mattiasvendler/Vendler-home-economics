@@ -1,12 +1,9 @@
-package se.vendler.client.client;
+package se.vendler.gwtclient.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
-import se.vendler.economics.account.Account;
 
 import java.util.List;
 

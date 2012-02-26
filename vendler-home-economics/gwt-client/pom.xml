@@ -26,7 +26,10 @@
                 </executions>
                 <configuration>
                     <jvmArgs>-Xmx1024m -Xms1024m</jvmArgs>
-                    <module>se.vendler.client.App</module>
+                    <modules>
+                        <module>se.vendler.gwtclient.App</module>
+                        <module>se.vendler.gwtclient.Entries</module>
+                    </modules>
                 </configuration>
             </plugin>
             <plugin>
@@ -34,7 +37,10 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <directory>${project.build.directory}/gwt/se.vendler.client.App</directory>
+                            <directory>${project.build.directory}/gwt/se.vendler.gwtclient.App</directory>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.directory}/gwt/se.vendler.gwtclient.Entries</directory>
                         </resource>
                     </webResources>
                 </configuration>

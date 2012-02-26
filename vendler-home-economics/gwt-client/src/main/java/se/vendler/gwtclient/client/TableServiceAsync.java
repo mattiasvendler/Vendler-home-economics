@@ -1,4 +1,4 @@
-package se.vendler.client.client;
+package se.vendler.gwtclient.client;
 
 public interface TableServiceAsync {
 }

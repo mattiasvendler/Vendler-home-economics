@@ -1,4 +1,4 @@
-package se.vendler.client.client;
+package se.vendler.gwtclient.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -8,7 +8,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
-import se.vendler.client.server.AppServiceImpl;
 
 import java.util.logging.Logger;
 

@@ -6,27 +6,27 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
     <servlet>
-        <servlet-name>se.vendler.client.App AppService</servlet-name>
-        <servlet-class>se.vendler.client.server.AppServiceImpl</servlet-class>
+        <servlet-name>se.vendler.gwtclient.App AppService</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.AppServiceImpl</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>se.vendler.client.App TableService</servlet-name>
-        <servlet-class>se.vendler.client.server.TableServiceImpl</servlet-class>
+        <servlet-name>se.vendler.gwtclient.App TableService</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.TableServiceImpl</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>se.vendler.client.Entries EntriesService</servlet-name>
-        <servlet-class>se.vendler.client.server.EntriesServiceImpl</servlet-class>
+        <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.EntriesServiceImpl</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>se.vendler.client.Entries EntriesService</servlet-name>
-        <url-pattern>/se.vendler.client.App/EntriesService</url-pattern>
+        <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
+        <url-pattern>/se.vendler.gwtclient.Entries/EntriesService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>se.vendler.client.App AppService</servlet-name>
-        <url-pattern>/se.vendler.client.App/AppService</url-pattern>
+        <servlet-name>se.vendler.gwtclient.App AppService</servlet-name>
+        <url-pattern>/se.vendler.gwtclient.App/AppService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>se.vendler.client.App TableService</servlet-name>
-        <url-pattern>/se.vendler.client.App/TableService</url-pattern>
+        <servlet-name>se.vendler.gwtclient.App TableService</servlet-name>
+        <url-pattern>/se.vendler.gwtclient.App/TableService</url-pattern>
     </servlet-mapping>
 </web-app>
