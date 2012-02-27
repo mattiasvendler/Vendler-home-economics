@@ -19,7 +19,7 @@ public class EntriesServiceImpl extends RemoteServiceServlet implements EntriesS
 
     @Override
     public List<String> getAccounts() {
-        String[] accounts = new String[]{"Mat","Boende","Bil"};
+        String[] accounts = new String[]{"Mat","Boende","Bil","Nöje"};
         return Arrays.asList(accounts);
     }
 }

@@ -17,16 +17,24 @@
         <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
         <servlet-class>se.vendler.gwtclient.server.EntriesServiceImpl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>se.vendler.gwtclient.App MainService</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.MainServiceImpl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
-        <url-pattern>/se.vendler.gwtclient.Entries/EntriesService</url-pattern>
+        <url-pattern>/EntriesService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>se.vendler.gwtclient.App AppService</servlet-name>
-        <url-pattern>/se.vendler.gwtclient.App/AppService</url-pattern>
+        <url-pattern>/AppService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>se.vendler.gwtclient.App TableService</servlet-name>
-        <url-pattern>/se.vendler.gwtclient.App/TableService</url-pattern>
+        <url-pattern>/TableService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>se.vendler.gwtclient.App MainService</servlet-name>
+        <url-pattern>/sMainService</url-pattern>
     </servlet-mapping>
 </web-app>

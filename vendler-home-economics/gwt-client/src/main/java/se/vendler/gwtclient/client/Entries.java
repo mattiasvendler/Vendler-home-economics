@@ -12,14 +12,15 @@ import java.util.List;
  * Date: 2/24/12
  * Time: 9:37 PM
  */
-public class Entries implements EntryPoint {
+public class Entries extends Composite implements EntryPoint {
     private final EntriesServiceAsync entriesServiceAsync = GWT.create(EntriesService.class);
+    private FlowPanel flowPanel;
 
-    public void onModuleLoad() {
+    public Entries() {
         TextBox entryTextBox = new TextBox();
         final ListBox accounts = new ListBox();
         TextBox amountTextBox = new TextBox();
-        FlowPanel flowPanel = new FlowPanel();
+        flowPanel = new FlowPanel();
         flowPanel.add(entryTextBox);
         flowPanel.add(accounts);
         flowPanel.add(amountTextBox);
@@ -38,7 +39,11 @@ public class Entries implements EntryPoint {
         });
 
         accounts.setVisibleItemCount(1);
-        RootPanel.get("entries").add(flowPanel);
+
+    }
+
+    public void onModuleLoad() {
+        RootPanel.get().add(flowPanel);
     }
 
 }

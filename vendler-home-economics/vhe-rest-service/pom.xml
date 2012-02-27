@@ -225,11 +225,11 @@
                 </configuration>
             </plugin>
             <!-- Deployent on AS from console -->
-            <plugin>
-                <groupId>org.jboss.as.plugins</groupId>
-                <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>${version.jboss.as.maven.plugin}</version>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.jboss.as.plugins</groupId>-->
+                <!--<artifactId>jboss-as-maven-plugin</artifactId>-->
+                <!--<version>${version.jboss.as.maven.plugin}</version>-->
+            <!--</plugin>-->
             <!-- Surefire plugin before 2.9 version is buggy -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
