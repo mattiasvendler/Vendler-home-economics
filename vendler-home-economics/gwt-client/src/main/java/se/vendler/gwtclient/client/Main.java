@@ -27,7 +27,7 @@ public class Main implements EntryPoint {
             }
         });
         fileSubMenu.addItem(openMenuItem);
-        Button button = new Button("Knapp1");
+        new Button("Knapp1");
         Button button2 = new Button("Knapp2");
         Button button3 = new Button("Knapp3");
         currentCenter = button3;

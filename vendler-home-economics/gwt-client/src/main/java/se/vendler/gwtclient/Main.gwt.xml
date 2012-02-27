@@ -6,4 +6,5 @@
 
     <entry-point class='se.vendler.gwtclient.client.Main'/>
     <source path="client"/>
+    <servlet path="/MainService" class="se.vendler.gwtclient.server.MainServiceImpl"/>
 </module>
