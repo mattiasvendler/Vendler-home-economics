@@ -1,49 +1,37 @@
 package se.vendler.gwtclient.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.*;
-
-import java.util.List;
+import com.google.gwt.user.client.ui.DockPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * User: Mattias Vendler
- * Date: 2/24/12
- * Time: 9:37 PM
+ * Date: 2/28/12
+ * Time: 1:28 PM
  */
-public class Entries extends Composite implements EntryPoint {
-    private final EntriesServiceAsync entriesServiceAsync = GWT.create(EntriesService.class);
+public class Entries implements EntryPoint {
+    private EntriesControllerAsync entriesControllerAsync = EntriesController.App.getInstance();
     private FlowPanel flowPanel;
-
-    public Entries() {
-        TextBox entryTextBox = new TextBox();
-        final ListBox accounts = new ListBox();
-        TextBox amountTextBox = new TextBox();
-        flowPanel = new FlowPanel();
-        flowPanel.add(entryTextBox);
-        flowPanel.add(accounts);
-        flowPanel.add(amountTextBox);
-        entriesServiceAsync.getAccounts(new AsyncCallback<List<String>>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                //To change body of implemented methods use File | Settings | File Templates.
-            }
-
-            @Override
-            public void onSuccess(List<String> result) {
-                for (String accountString : result) {
-                    accounts.addItem(accountString);
-                }
-            }
-        });
-
-        accounts.setVisibleItemCount(1);
-
-    }
-
+    private Label statusLabel;
     public void onModuleLoad() {
-        RootPanel.get().add(flowPanel);
+        DockPanel dockPanel = new DockPanel();
+        initNortPanel();
+        dockPanel.add(getNortPanel(), DockPanel.NORTH);
+        dockPanel.add(new EntriesPanel(),DockPanel.CENTER);
+        RootPanel.get().add(dockPanel);
     }
 
+    private void initNortPanel(){
+        flowPanel=getNortPanel();
+        statusLabel=new Label("-");
+        flowPanel.add(statusLabel);
+    }
+    private FlowPanel getNortPanel() {
+        if (flowPanel == null) {
+            flowPanel = new FlowPanel();
+        }
+        return flowPanel;
+    }
 }

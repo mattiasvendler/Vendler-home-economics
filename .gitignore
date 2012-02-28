@@ -10,3 +10,8 @@
 *.jar
 *.war
 
+gwt-client/.classpath
+gwt-client/.classpath
+gwt-client/.settings
+*/target
+*~

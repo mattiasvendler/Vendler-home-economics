@@ -6,35 +6,20 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
     <servlet>
-        <servlet-name>se.vendler.gwtclient.App AppService</servlet-name>
-        <servlet-class>se.vendler.gwtclient.server.AppServiceImpl</servlet-class>
+        <servlet-name>se.vendler.gwtclient.Entries EntriesController</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.EntriesControllerImpl</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>se.vendler.gwtclient.App TableService</servlet-name>
-        <servlet-class>se.vendler.gwtclient.server.TableServiceImpl</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
-        <servlet-class>se.vendler.gwtclient.server.EntriesServiceImpl</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>se.vendler.gwtclient.App MainService</servlet-name>
-        <servlet-class>se.vendler.gwtclient.server.MainServiceImpl</servlet-class>
+        <servlet-name>se.vendler.gwtclient.Entries AccountController</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.AccountControllerImpl</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>se.vendler.gwtclient.Entries EntriesService</servlet-name>
-        <url-pattern>/EntriesService</url-pattern>
+        <servlet-name>se.vendler.gwtclient.Entries EntriesController</servlet-name>
+        <url-pattern>/EntriesController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>se.vendler.gwtclient.App AppService</servlet-name>
-        <url-pattern>/AppService</url-pattern>
+        <servlet-name>se.vendler.gwtclient.Entries AccountController</servlet-name>
+        <url-pattern>/AccountController</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>se.vendler.gwtclient.App TableService</servlet-name>
-        <url-pattern>/TableService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>se.vendler.gwtclient.App MainService</servlet-name>
-        <url-pattern>/sMainService</url-pattern>
-    </servlet-mapping>
+
 </web-app>

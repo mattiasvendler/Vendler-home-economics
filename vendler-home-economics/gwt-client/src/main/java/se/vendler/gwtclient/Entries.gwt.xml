@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
 <module>
 
     <inherits name='com.google.gwt.user.User'/>
 
     <entry-point class='se.vendler.gwtclient.client.Entries'/>
-     <source path="client"/>
+    <servlet path="/EntriesController" class="se.vendler.gwtclient.server.EntriesControllerImpl"/>
+    <servlet path="/AccountController" class="se.vendler.gwtclient.server.AccountControllerImpl"/>
+    <source path="client"/>
+    <source path="model"/>
 </module>

@@ -4,8 +4,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**
  * User: Mattias Vendler
- * Date: 2/27/12
- * Time: 7:40 PM
+ * Date: 2/28/12
+ * Time: 1:32 PM
  */
-public interface MainServiceAsync {
+public interface EntriesControllerAsync {
 }

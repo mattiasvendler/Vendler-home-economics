@@ -27,7 +27,6 @@
                 <configuration>
                     <!--<jvmArgs>-Xmx1024m -Xms1024m</jvmArgs>-->
                     <modules>
-                        <module>se.vendler.gwtclient.App</module>
                         <module>se.vendler.gwtclient.Entries</module>
                     </modules>
                 </configuration>
@@ -36,9 +35,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <webResources>
-                        <resource>
-                            <directory>${project.build.directory}/gwt/se.vendler.gwtclient.App</directory>
-                        </resource>
                         <resource>
                             <directory>${project.build.directory}/gwt/se.vendler.gwtclient.Entries</directory>
                         </resource>
