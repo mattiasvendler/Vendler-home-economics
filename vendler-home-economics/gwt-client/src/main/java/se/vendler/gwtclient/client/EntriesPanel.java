@@ -28,9 +28,11 @@ public class EntriesPanel extends Composite{
         flexTable = new FlowPanel();
         initWidget(flexTable);
         TextBox entriesText = new TextBox();
+	    entriesText.setMaxLength(200);
         final ListBox accountGroup = new ListBox();
         accounts = new ListBox();
         TextBox amount = new TextBox();
+	    amount.setMaxLength(5);
         flexTable.add(entriesText);
         flexTable.add(accountGroup);
         flexTable.add(accounts);
