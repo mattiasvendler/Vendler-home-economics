@@ -13,6 +13,10 @@
         <servlet-name>se.vendler.gwtclient.Entries AccountController</servlet-name>
         <servlet-class>se.vendler.gwtclient.server.AccountControllerImpl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>se.vendler.gwtclient.Entries ClientController</servlet-name>
+        <servlet-class>se.vendler.gwtclient.server.ClientControllerImpl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>se.vendler.gwtclient.Entries EntriesController</servlet-name>
         <url-pattern>/EntriesController</url-pattern>
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>se.vendler.gwtclient.Entries AccountController</servlet-name>
         <url-pattern>/AccountController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>se.vendler.gwtclient.Entries ClientController</servlet-name>
+        <url-pattern>/ClientController</url-pattern>
     </servlet-mapping>
 
 </web-app>

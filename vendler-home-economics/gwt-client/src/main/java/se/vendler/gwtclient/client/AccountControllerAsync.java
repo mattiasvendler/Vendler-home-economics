@@ -13,4 +13,6 @@ public interface AccountControllerAsync {
     void getAccounts(AsyncCallback<List<Account>> async);
 
     void getAccountGroups(AsyncCallback<List<AccountGroup>> async);
+
+    void getAccounts(Integer id, AsyncCallback<List<Account>> async);
 }

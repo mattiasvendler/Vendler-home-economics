@@ -14,6 +14,7 @@ import java.util.List;
 @RemoteServiceRelativePath("AccountController")
 public interface AccountController extends RemoteService {
     List<Account> getAccounts();
+    List<Account> getAccounts(Integer id);
     List<AccountGroup> getAccountGroups();
     /**
      * Utility/Convenience class.

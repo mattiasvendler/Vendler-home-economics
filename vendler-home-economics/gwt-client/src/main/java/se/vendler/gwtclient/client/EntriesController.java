@@ -3,6 +3,7 @@ package se.vendler.gwtclient.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.google.gwt.core.client.GWT;
+import se.vendler.gwtclient.client.model.Entry;
 
 /**
  * User: Mattias Vendler
@@ -11,6 +12,8 @@ import com.google.gwt.core.client.GWT;
  */
 @RemoteServiceRelativePath("EntriesController")
 public interface EntriesController extends RemoteService {
+    void addEntry(Entry entry);
+
     /**
      * Utility/Convenience class.
      * Use EntriesController.App.getInstance() to access static instance of EntriesControllerAsync
