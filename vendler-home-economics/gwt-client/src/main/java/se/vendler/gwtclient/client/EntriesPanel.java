@@ -1,12 +1,13 @@
 package se.vendler.gwtclient.client;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import se.vendler.gwtclient.client.model.Account;
+import se.vendler.gwtclient.client.model.AccountGroup;
 import se.vendler.gwtclient.client.model.Entry;
 
 import java.util.ArrayList;

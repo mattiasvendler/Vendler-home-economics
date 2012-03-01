@@ -3,6 +3,8 @@ package se.vendler.gwtclient.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.google.gwt.core.client.GWT;
+import se.vendler.gwtclient.client.model.Account;
+import se.vendler.gwtclient.client.model.AccountGroup;
 
 import java.util.List;
 

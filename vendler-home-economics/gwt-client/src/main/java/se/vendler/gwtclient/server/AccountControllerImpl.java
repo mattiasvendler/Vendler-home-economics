@@ -1,9 +1,9 @@
 package se.vendler.gwtclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import se.vendler.gwtclient.client.Account;
+import se.vendler.gwtclient.client.model.Account;
 import se.vendler.gwtclient.client.AccountController;
-import se.vendler.gwtclient.client.AccountGroup;
+import se.vendler.gwtclient.client.model.AccountGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;

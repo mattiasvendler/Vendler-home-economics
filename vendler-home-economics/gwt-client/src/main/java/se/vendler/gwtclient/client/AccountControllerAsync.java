@@ -1,6 +1,8 @@
 package se.vendler.gwtclient.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import se.vendler.gwtclient.client.model.Account;
+import se.vendler.gwtclient.client.model.AccountGroup;
 
 import java.util.List;
 

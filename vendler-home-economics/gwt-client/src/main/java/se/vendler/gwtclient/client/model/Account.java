@@ -1,4 +1,4 @@
-package se.vendler.gwtclient.client;
+package se.vendler.gwtclient.client.model;
 
 import se.vendler.economics.account.AbstractAccount;
 
