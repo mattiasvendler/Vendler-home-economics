@@ -11,5 +11,5 @@ public interface ClientControllerAsync {
 
     void isUserLoggedIn(AsyncCallback<Boolean> async);
 
-    void login(String userName, String password, AsyncCallback<Void> async);
+    void login(String userName, String password, AsyncCallback<Boolean> async);
 }

@@ -10,26 +10,12 @@ import com.google.gwt.user.client.ui.*;
  * Date: 2/28/12
  * Time: 1:28 PM
  */
-public class Entries implements EntryPoint {
+public class Entries extends AbstractEntryPoint {
     private EntriesControllerAsync entriesControllerAsync = EntriesController.App.getInstance();
-    private ClientControllerAsync clientControllerAsync = ClientController.App.getInstance();
     private FlowPanel flowPanel;
     private Label statusLabel;
     public void onModuleLoad() {
-
-        clientControllerAsync.isUserLoggedIn(new AsyncCallback<Boolean>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                //To change body of implemented methods use File | Settings | File Templates.
-            }
-
-            @Override
-            public void onSuccess(Boolean result) {
-                if (!result) {
-                    Window.Location.assign("index.html");
-                }
-            }
-        });
+        super.onModuleLoad();
         DockPanel dockPanel = new DockPanel();
         initNortPanel();
         dockPanel.add(getNortPanel(), DockPanel.NORTH);

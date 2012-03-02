@@ -25,9 +25,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--<jvmArgs>-Xmx1024m -Xms1024m</jvmArgs>-->
                     <modules>
                         <module>se.vendler.gwtclient.Entries</module>
+                        <module>se.vendler.gwtclient.Login</module>
                     </modules>
                 </configuration>
             </plugin>
@@ -37,6 +37,9 @@
                     <webResources>
                         <resource>
                             <directory>${project.build.directory}/gwt/se.vendler.gwtclient.Entries</directory>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.directory}/gwt/se.vendler.gwtclient.Login</directory>
                         </resource>
                     </webResources>
                 </configuration>

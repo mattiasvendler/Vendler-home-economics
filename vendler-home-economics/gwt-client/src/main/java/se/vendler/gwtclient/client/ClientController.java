@@ -13,7 +13,7 @@ import com.google.gwt.core.client.GWT;
 public interface ClientController extends RemoteService {
 
     Boolean isUserLoggedIn();
-    void login(String userName,String password);
+    Boolean login(String userName,String password);
 
     /**
      * Utility/Convenience class.

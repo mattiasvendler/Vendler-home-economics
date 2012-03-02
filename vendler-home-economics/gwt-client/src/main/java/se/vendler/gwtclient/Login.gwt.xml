@@ -3,10 +3,7 @@
 <module>
 
     <inherits name='com.google.gwt.user.User'/>
-    <entry-point class='se.vendler.gwtclient.client.Entries'/>
     <entry-point class='se.vendler.gwtclient.client.Login'/>
-    <servlet path="/EntriesController" class="se.vendler.gwtclient.server.EntriesControllerImpl"/>
-    <servlet path="/AccountController" class="se.vendler.gwtclient.server.AccountControllerImpl"/>
     <servlet path="/ClientController" class="se.vendler.gwtclient.server.ClientControllerImpl"/>
     <source path="client"/>
     <source path="model"/>

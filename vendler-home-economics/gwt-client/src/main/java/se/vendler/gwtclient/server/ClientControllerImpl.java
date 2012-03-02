@@ -13,15 +13,23 @@ import javax.servlet.http.HttpSession;
 public class ClientControllerImpl extends RemoteServiceServlet implements ClientController {
     @Override
     public Boolean isUserLoggedIn() {
+        HttpSession session = getThreadLocalRequest().getSession();
+        if (session == null) {
+            return false;
+        }
+        if (session.getAttribute("userId") != null) {
+          return true;
+        }
         return false;
     }
 
     @Override
-    public void login(String userName, String password) {
+    public Boolean login(String userName, String password) {
         HttpSession session = getThreadLocalRequest().getSession(true);
         session.setAttribute("username",userName);
         session.setAttribute("password",password);
         session.setAttribute("userId",1);
+        return true;
     }
 
 
