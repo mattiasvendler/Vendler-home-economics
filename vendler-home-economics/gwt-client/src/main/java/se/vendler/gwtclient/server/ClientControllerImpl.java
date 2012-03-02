@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 public class ClientControllerImpl extends RemoteServiceServlet implements ClientController {
     @Override
     public Boolean isUserLoggedIn() {
-        HttpSession session = getThreadLocalRequest().getSession();
+        HttpSession session = getThreadLocalRequest().getSession(false);
         if (session == null) {
             return false;
         }
