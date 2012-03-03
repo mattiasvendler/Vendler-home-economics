@@ -1,5 +1,6 @@
 package se.vendler.webclient.client.panels;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -7,6 +8,7 @@ import com.google.gwt.user.client.ui.*;
 import se.vendler.webclient.client.ClientController;
 import se.vendler.webclient.client.ClientControllerAsync;
 import se.vendler.webclient.client.Content;
+import se.vendler.webclient.client.Messages;
 
 /**
  * User: Mattias Vendler
@@ -14,6 +16,7 @@ import se.vendler.webclient.client.Content;
  * Time: 1:32 PM
  */
 public class Login extends Composite {
+    private Messages messages = GWT.create(Messages.class);
      private ClientControllerAsync clientControllerAsync = ClientController.App.getInstance();
     public Login() {
         init();
@@ -39,7 +42,7 @@ public class Login extends Composite {
                     @Override
                     public void onSuccess(Boolean result) {
                         Content.getInstance().setContent(new BlancPanel());
-                        Head.getInstance().setStatus("Logged in");
+                        Head.getInstance().setStatus(messages.loggedIn());
                     }
                 });
 

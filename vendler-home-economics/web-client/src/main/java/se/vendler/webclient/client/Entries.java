@@ -22,7 +22,6 @@ public class Entries implements EntryPoint {
   /**
    * Create a remote service proxy to talk to the server-side Greeting service.
    */
-  private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
 
   private final Messages messages = GWT.create(Messages.class);
 
