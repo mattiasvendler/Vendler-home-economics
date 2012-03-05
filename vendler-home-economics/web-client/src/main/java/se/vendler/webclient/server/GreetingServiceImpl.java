@@ -1,5 +1,6 @@
 package se.vendler.webclient.server;
 
+import org.springframework.stereotype.Controller;
 import se.vendler.webclient.client.GreetingService;
 import se.vendler.webclient.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -8,6 +9,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  * The server side implementation of the RPC service.
  */
 @SuppressWarnings("serial")
+@Controller
 public class GreetingServiceImpl extends RemoteServiceServlet implements
     GreetingService {
 

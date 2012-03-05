@@ -11,16 +11,7 @@
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
    <!-- Scan the the domain package for Spring repositories and services -->
-   <context:component-scan base-package="se.vendler.domain" />
-
-   <!-- Look up the database in JNDI -->
-   <jee:jndi-lookup jndi-name="java:jboss/datasources/ExampleDS" id="dataSource"
-      expected-type="javax.sql.DataSource" />
-
-   <!-- Look up the container deployed EntityManager -->
-   <jee:jndi-lookup jndi-name="java:comp/env/hello/EntityManager"
-      id="entityManager" expected-type="javax.persistence.EntityManager" />
-
+   <context:component-scan base-package="se.vendler" />
    <!-- Use JTA transactions with the container-deployed EntityManager -->
    <tx:jta-transaction-manager />
 
@@ -32,8 +23,11 @@
       In a production application,  the tables and data are already
       existing, so you should disable this definition.
    -->
-   <jdbc:initialize-database data-source="dataSource">
-      <jdbc:script location="classpath*:init-db.sql" />
-   </jdbc:initialize-database>
 
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="mysql://127.0.0.1:5520"/>
+        <property name="password" value="msandbox"/>
+        <property name="username" value="msandbox"/>
+    </bean>
 </beans>

@@ -25,7 +25,9 @@ import java.util.List;
 public class EntriesPanel extends Composite{
     private EntriesControllerAsync entriesControllerAsync = EntriesController.App.getInstance();
     private AccountControllerAsync accountControllerAsync = AccountController.App.getInstance();
-    private FlowPanel flowPanel;
+    private FlexTable flexTable;
+    private FlexTable entriesTable;
+    private VerticalPanel verticalPanel;
     private List<Account> accountsList;
     private ListBox accounts;
     private TextBox entriesText;
@@ -36,8 +38,12 @@ public class EntriesPanel extends Composite{
     }
 
     private void init() {
-        flowPanel = new FlowPanel();
-        initWidget(flowPanel);
+        verticalPanel = new VerticalPanel();
+        initWidget(verticalPanel);
+        flexTable = new FlexTable();
+        entriesTable = new FlexTable();
+        verticalPanel.add(flexTable);
+        verticalPanel.add(entriesTable);
         entriesText = new TextBox();
 	    entriesText.setMaxLength(200);
         entriesText.setVisibleLength(50);;
@@ -48,11 +54,11 @@ public class EntriesPanel extends Composite{
         Button addButton = new Button("Lägg till");
 	    amount.setMaxLength(5);
         amount.setVisibleLength(5);
-        flowPanel.add(entriesText);
-        flowPanel.add(accountGroup);
-        flowPanel.add(accounts);
-        flowPanel.add(amount);
-        flowPanel.add(addButton);
+        flexTable.setWidget(1,1,entriesText);;
+        flexTable.setWidget(1, 2, accountGroup);
+        flexTable.setWidget(1, 3, accounts);
+        flexTable.setWidget(1, 4, amount);
+        flexTable.setWidget(1, 5, addButton);
         accountsList = new ArrayList<Account>();
         accountControllerAsync.getAccountGroups(new AsyncCallback<List<AccountGroup>>() {
             @Override
@@ -117,6 +123,7 @@ public class EntriesPanel extends Composite{
                     public void onSuccess(Void result) {
                         entriesText.setText("");
                         amount.setText("");
+                        updateEntriesList();
                     }
                 });
             }
@@ -125,6 +132,29 @@ public class EntriesPanel extends Composite{
         accounts.setVisibleItemCount(1);
     }
 
+    private void updateEntriesList() {
+        entriesControllerAsync.getAllEntries(new AsyncCallback<List<Entry>>() {
+            @Override
+            public void onFailure(Throwable caught) {
+                //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            @Override
+            public void onSuccess(List<Entry> result) {
+                int nextRow = entriesTable.getRowCount()+1;
+                for (Entry entry : result) {
+                    Label label = new Label(entry.getText());
+                    label.setWidth("200");
+                    entriesTable.setWidget(nextRow,1,label);
+                    entriesTable.setWidget(nextRow,2,new Label(entry.getAccount()));
+                    entriesTable.setWidget(nextRow,3,new Label(entry.getAmount()));
+                    entriesTable.setWidget(nextRow,4,new Label(""));
+                    entriesTable.setWidget(nextRow,5,new Label(""));
+                    nextRow++;
+                }
+            }
+        });
+    }
     private void setAccountToList(List<Account> accountList) {
         accounts.clear();
         for (Account account : accountList) {

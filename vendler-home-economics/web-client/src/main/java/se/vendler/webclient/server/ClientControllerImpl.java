@@ -1,6 +1,7 @@
 package se.vendler.webclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import org.springframework.stereotype.Controller;
 import se.vendler.webclient.client.ClientController;
 
 import javax.servlet.http.HttpSession;

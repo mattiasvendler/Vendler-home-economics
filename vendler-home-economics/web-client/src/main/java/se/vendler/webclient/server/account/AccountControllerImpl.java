@@ -1,4 +1,4 @@
-package se.vendler.webclient.server;
+package se.vendler.webclient.server.account;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import se.vendler.webclient.client.AccountController;
@@ -21,6 +21,7 @@ public class AccountControllerImpl extends RemoteServiceServlet implements Accou
     private static List<Account> accountsG1;
     private static List<Account> accountsG2;
     private static List<AccountGroup> accountGroups;
+    private AccountRepository accountRepository;
     static{
         map = new HashMap<Integer, List<Account>>();
         accountsG1 = new ArrayList<Account>();
@@ -47,15 +48,19 @@ public class AccountControllerImpl extends RemoteServiceServlet implements Accou
 
 
     }
+    public AccountControllerImpl() {
+        accountRepository=new AccountRepository();
+    }
     @Override
     public List<Account> getAccounts() {
-        getThreadLocalRequest().getSession();
-        return accountsG1;
+        Integer userId = (Integer) getThreadLocalRequest().getSession().getAttribute("userId");
+        List<Account> accounts = accountRepository.getAccounts(userId);
+        return accounts;
     }
 
     @Override
     public List<Account> getAccounts(Integer id) {
-        return map.get(id);
+        return accountRepository.getAccounts(0);
     }
 
 

@@ -3,6 +3,7 @@ package se.vendler.webclient.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+import org.springframework.stereotype.Controller;
 import se.vendler.webclient.client.model.Account;
 import se.vendler.webclient.client.model.AccountGroup;
 

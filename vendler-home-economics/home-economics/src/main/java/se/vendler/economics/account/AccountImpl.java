@@ -5,7 +5,7 @@ package se.vendler.economics.account;
  * Date: 2/24/12
  * Time: 9:26 PM
  */
-public class AbstractAccount implements Account{
+public class AccountImpl implements Account{
     protected String accountName;
     protected String accountNumber;
     protected Double balance;

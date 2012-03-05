@@ -5,6 +5,8 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import se.vendler.webclient.client.model.Entry;
 
+import java.util.List;
+
 /**
  * User: Mattias Vendler
  * Date: 2/28/12
@@ -13,6 +15,8 @@ import se.vendler.webclient.client.model.Entry;
 @RemoteServiceRelativePath("EntriesController")
 public interface EntriesController extends RemoteService {
     void addEntry(Entry entry);
+
+    List<Entry> getAllEntries();
 
     /**
      * Utility/Convenience class.

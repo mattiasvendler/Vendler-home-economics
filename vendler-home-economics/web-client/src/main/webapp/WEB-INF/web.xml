@@ -5,6 +5,26 @@
 
 <web-app>
 
+    <!--<context-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>/WEB-INF/buissniess-context.xml</param-value>-->
+    <!--</context-param>-->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+    <!--<servlet>-->
+        <!--<servlet-name>Spring MVC Servlet</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>/WEB-INF/mvc-context.xml</param-value>-->
+        <!--</init-param>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Spring MVC Servlet</servlet-name>-->
+        <!--<url-pattern>/Entries/service/*</url-pattern>-->
+    <!--</servlet-mapping>-->
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
@@ -12,7 +32,7 @@
   </servlet>
     <servlet>
         <servlet-name>se.vendler.webclient.Entries AccountController</servlet-name>
-        <servlet-class>se.vendler.webclient.server.AccountControllerImpl</servlet-class>
+        <servlet-class>se.vendler.webclient.server.account.AccountControllerImpl</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>se.vendler.webclient.Entries ClientController</servlet-name>
