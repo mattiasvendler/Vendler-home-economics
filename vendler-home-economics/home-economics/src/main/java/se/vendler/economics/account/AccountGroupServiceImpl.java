@@ -7,15 +7,16 @@ import java.util.List;
 
 /**
  * User: Mattias Vendler
- * Date: 3/5/12
- * Time: 9:43 PM
+ * Date: 3/6/12
+ * Time: 8:43 PM
  */
 @Component
-public class AccountServiceImpl implements AccountService{
+public class AccountGroupServiceImpl implements AccountGroupService{
     @Autowired
-    private AccountDAO dao;
+    private AccountGroupDAO accountGroupDAO;
+
     @Override
-    public List<Account> getAccounts(Integer accountGroupId) {
-        return dao.getAccounts(accountGroupId);
+    public List<AccountGroup> getAccountGroups() {
+        return accountGroupDAO.getAccountGroups();
     }
 }

@@ -6,6 +6,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.datepicker.client.DateBox;
+import com.google.gwt.user.datepicker.client.DatePicker;
 import se.vendler.webclient.client.AccountController;
 import se.vendler.webclient.client.AccountControllerAsync;
 import se.vendler.webclient.client.EntriesController;
@@ -14,7 +16,10 @@ import se.vendler.webclient.client.model.Account;
 import se.vendler.webclient.client.model.AccountGroup;
 import se.vendler.webclient.client.model.Entry;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,6 +36,8 @@ public class EntriesPanel extends Composite{
     private List<Account> accountsList;
     private ListBox accounts;
     private TextBox entriesText;
+    private DatePicker datePicker;
+    private DateBox dateBox;
 
     public EntriesPanel() {
         super();
@@ -54,11 +61,14 @@ public class EntriesPanel extends Composite{
         Button addButton = new Button("Lägg till");
 	    amount.setMaxLength(5);
         amount.setVisibleLength(5);
+        datePicker = new DatePicker();
+        dateBox = new DateBox();
         flexTable.setWidget(1,1,entriesText);;
-        flexTable.setWidget(1, 2, accountGroup);
-        flexTable.setWidget(1, 3, accounts);
-        flexTable.setWidget(1, 4, amount);
-        flexTable.setWidget(1, 5, addButton);
+        flexTable.setWidget(1,2, dateBox);;
+        flexTable.setWidget(1, 3, accountGroup);
+        flexTable.setWidget(1, 4, accounts);
+        flexTable.setWidget(1, 5, amount);
+        flexTable.setWidget(1, 6, addButton);
         accountsList = new ArrayList<Account>();
         accountControllerAsync.getAccountGroups(new AsyncCallback<List<AccountGroup>>() {
             @Override
@@ -71,6 +81,7 @@ public class EntriesPanel extends Composite{
                 for (AccountGroup accGroup : result) {
                     accountGroup.addItem(accGroup.getName(),Integer.valueOf(accGroup.getId()).toString());
                 }
+                accountGroup.setSelectedIndex(0);
             }
         });
         accountControllerAsync.getAccounts(1,new AsyncCallback<List<Account>>() {
@@ -111,8 +122,8 @@ public class EntriesPanel extends Composite{
                 String text = entriesText.getText();
                 String account = accounts.getValue(accounts.getSelectedIndex());
                 String entryAmount = amount.getText();
-                Entry entry = new Entry(text,account,entryAmount);
-
+                Date date = dateBox.getValue();
+                Entry entry = new Entry(text,account,entryAmount,date);
                 entriesControllerAsync.addEntry(entry, new AsyncCallback<Void>() {
                     @Override
                     public void onFailure(Throwable caught) {
@@ -148,7 +159,7 @@ public class EntriesPanel extends Composite{
                     entriesTable.setWidget(nextRow,1,label);
                     entriesTable.setWidget(nextRow,2,new Label(entry.getAccount()));
                     entriesTable.setWidget(nextRow,3,new Label(entry.getAmount()));
-                    entriesTable.setWidget(nextRow,4,new Label(""));
+                    entriesTable.setWidget(nextRow,4,new Label(entry.getDate().toString()));
                     entriesTable.setWidget(nextRow,5,new Label(""));
                     nextRow++;
                 }

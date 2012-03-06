@@ -1,6 +1,7 @@
 package se.vendler.webclient.client.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * User: Mattias Vendler
@@ -12,21 +13,43 @@ public class Entry implements Serializable{
     private String text;
     private String account;
     private String amount;
+    private Date date;
 
     public Entry() {
     }
 
-    public Entry(String id, String text, String account, String amount) {
+    public Entry(String id, String text, String account, String amount,Date date) {
         this.id = id;
         this.text = text;
         this.account = account;
         this.amount = amount;
+        this.date=date;
     }
 
     public Entry(String text, String account, String amount) {
         this.text = text;
         this.account = account;
         this.amount = amount;
+    }
+
+    public Entry(String text, String account, String entryAmount, Date date) {
+        this(null,text,account,entryAmount,date);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getText() {

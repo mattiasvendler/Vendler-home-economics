@@ -53,19 +53,18 @@ public class AccountControllerImpl extends RemoteServiceServlet implements Accou
     }
     @Override
     public List<Account> getAccounts() {
-        Integer userId = (Integer) getThreadLocalRequest().getSession().getAttribute("userId");
-        List<Account> accounts = accountRepository.getAccounts(userId);
+        List<Account> accounts = accountRepository.getAccounts(1);
         return accounts;
     }
 
     @Override
     public List<Account> getAccounts(Integer id) {
-        return accountRepository.getAccounts(0);
+        return accountRepository.getAccounts(id);
     }
 
 
     @Override
     public List<AccountGroup> getAccountGroups() {
-        return accountGroups;
+        return accountRepository.getAccountGroups();
     }
 }

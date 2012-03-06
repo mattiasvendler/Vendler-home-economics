@@ -41,4 +41,17 @@ public class AccountDAO {
             }
         });
     }
+    public List<Account> getAccounts(int accountGroupId) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("p_id",accountGroupId);
+        return getTemplate().query("call b_get_accounts_accountgroup(:p_id);",source,new RowMapper<Account>() {
+            @Override
+            public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Account account = new AccountImpl();
+                account.setAccountName(rs.getString("name"));
+                account.setAccountNumber(rs.getString("account_nr"));
+                return account;
+            }
+        });
+    }
 }
