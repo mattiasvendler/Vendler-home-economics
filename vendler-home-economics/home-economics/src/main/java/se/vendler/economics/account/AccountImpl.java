@@ -9,6 +9,16 @@ public class AccountImpl implements Account{
     protected String accountName;
     protected String accountNumber;
     protected Double balance;
+    private int id;
+
+    public AccountImpl() {
+    }
+
+    public AccountImpl(String accountName, String accountNumber, int id) {
+        this.accountName = accountName;
+        this.accountNumber = accountNumber;
+        this.id = id;
+    }
 
     @Override
     public String getAccountName() {
@@ -38,5 +48,14 @@ public class AccountImpl implements Account{
     @Override
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 }

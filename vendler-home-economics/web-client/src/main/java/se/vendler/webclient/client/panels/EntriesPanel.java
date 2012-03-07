@@ -144,7 +144,7 @@ public class EntriesPanel extends Composite{
     }
 
     private void updateEntriesList() {
-        entriesControllerAsync.getAllEntries(new AsyncCallback<List<Entry>>() {
+        entriesControllerAsync.getAllEntries("",new AsyncCallback<List<Entry>>() {
             @Override
             public void onFailure(Throwable caught) {
                 //To change body of implemented methods use File | Settings | File Templates.
@@ -169,7 +169,7 @@ public class EntriesPanel extends Composite{
     private void setAccountToList(List<Account> accountList) {
         accounts.clear();
         for (Account account : accountList) {
-            accounts.addItem(account.getAccountName());
+            accounts.addItem(account.getAccountName(),account.getAccountNumber());
         }
     }
 

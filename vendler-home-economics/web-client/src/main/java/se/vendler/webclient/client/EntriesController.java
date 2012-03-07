@@ -16,7 +16,7 @@ import java.util.List;
 public interface EntriesController extends RemoteService {
     void addEntry(Entry entry);
 
-    List<Entry> getAllEntries();
+    List<Entry> getAllEntries(String userId);
 
     /**
      * Utility/Convenience class.

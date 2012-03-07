@@ -3,7 +3,7 @@ use vhe;
 insert into account (id,name,account_nr) values (1,"Matvaror","1111");
 insert into account (id,name,account_nr) values (2,"Kläder","2222");
 insert into account (id,name,account_nr) values (3,"Lön","3333");
-insert into account (id,name,account_nr) values (4,"Lunch","1111");
+insert into account (id,name,account_nr) values (4,"Lunch","1112");
 
 insert into account_group (id,name) values (1,"Mat");
 insert into account_group (id,name) values (2,"Shopping");

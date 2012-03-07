@@ -14,5 +14,5 @@ public interface EntriesControllerAsync {
 
     void addEntry(Entry entry, AsyncCallback<Void> async);
 
-    void getAllEntries(AsyncCallback<List<Entry>> async);
+    void getAllEntries(String userId, AsyncCallback<List<Entry>> async);
 }

@@ -19,4 +19,6 @@ public interface Account extends Serializable{
     Double getBalance();
 
     void setBalance(Double balance);
+
+    int getId();
 }

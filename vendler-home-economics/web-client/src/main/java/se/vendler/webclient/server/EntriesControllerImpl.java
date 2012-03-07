@@ -2,6 +2,9 @@ package se.vendler.webclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import org.springframework.stereotype.Controller;
+import se.vendler.economics.entry.EntryService;
+import se.vendler.economics.util.spring.BeanLocator;
+import se.vendler.webclient.client.Entries;
 import se.vendler.webclient.client.EntriesController;
 import se.vendler.webclient.client.model.Entry;
 
@@ -15,13 +18,24 @@ import java.util.List;
  */
 public class EntriesControllerImpl extends RemoteServiceServlet implements EntriesController {
     private static List<Entry> entries = new ArrayList<Entry>();
-    @Override
-    public void addEntry(Entry entry) {
-        entries.add(entry);
+    private EntryService entryService;
+    public EntriesControllerImpl() {
+        entryService= BeanLocator.getBean(EntryService.class);
     }
 
     @Override
-    public List<Entry> getAllEntries() {
-        return entries;
+    public void addEntry(Entry entry) {
+        entryService.addEntry(entry.getText(), entry.getAccount(), entry.getAmount(), entry.getDate());
+    }
+
+    @Override
+    public List<Entry> getAllEntries(String userId) {
+        List<se.vendler.economics.entry.Entry> entries = entryService.getEntries(userId);
+        List<Entry> entriesList = new ArrayList<Entry>();
+        for (se.vendler.economics.entry.Entry entry : entries) {
+            Entry e = new Entry(entry.getId()+"",entry.getText(),entry.getAccount().getAccountName(),entry.getAmount().toString(),entry.getDate());
+            entriesList.add(e);
+        }
+        return entriesList;
     }
 }

@@ -54,4 +54,20 @@ public class AccountDAO {
             }
         });
     }
+
+    public Account getAccount(String accountNr) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("p_accountNr",accountNr);
+        return getTemplate().query("call b_get_account(:p_accountNr);",source,new RowMapper<Account>() {
+            @Override
+            public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+                AccountImpl account = new AccountImpl();
+                account.setAccountNumber(rs.getString("account_nr"));
+                account.setAccountName(rs.getString("name"));
+                account.setBalance(0D);
+                account.setId(rs.getInt("id"));
+                return account;
+            }
+        }).get(0);
+    }
 }
