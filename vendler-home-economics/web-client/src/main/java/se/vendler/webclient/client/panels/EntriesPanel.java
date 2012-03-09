@@ -152,7 +152,8 @@ public class EntriesPanel extends Composite{
 
             @Override
             public void onSuccess(List<Entry> result) {
-                int nextRow = entriesTable.getRowCount()+1;
+                int nextRow = 0;
+                entriesTable.clear();
                 for (Entry entry : result) {
                     Label label = new Label(entry.getText());
                     label.setWidth("200");

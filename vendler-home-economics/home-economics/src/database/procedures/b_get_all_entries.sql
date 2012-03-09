@@ -13,7 +13,7 @@ begin
     e.entry_date date,
     e.id entry_id
     from vhe.account a, vhe.entry e
-    where a.id=e.account_id;
+    where a.id=e.account_id order by date asc;
 end //
 
 delimiter ;
