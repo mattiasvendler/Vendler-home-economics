@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import se.vendler.webclient.client.panels.Login;
+import se.vendler.webclient.client.panels.RootContainer;
 
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
@@ -33,8 +34,9 @@ public class Content extends Composite {
 
     public static void setContent(Composite content) {
         isLoggedIn();
-        get("content").clear();
-        get("content").add(content);
+//        get("content").clear();
+//        get("content").add(content);
+        RootContainer.setContent(content);
     }
 
     private static void isLoggedIn() {
@@ -48,8 +50,7 @@ public class Content extends Composite {
             @Override
             public void onSuccess(Boolean result) {
                 if (!result) {
-                    get("content").clear();
-                    get("content").add(new Login());
+                    RootContainer.setContent(new Login());
                 }
             }
         });

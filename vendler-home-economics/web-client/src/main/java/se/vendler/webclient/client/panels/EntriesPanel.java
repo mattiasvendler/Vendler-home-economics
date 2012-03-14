@@ -16,8 +16,6 @@ import se.vendler.webclient.client.model.Account;
 import se.vendler.webclient.client.model.AccountGroup;
 import se.vendler.webclient.client.model.Entry;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -141,6 +139,7 @@ public class EntriesPanel extends Composite{
         });
         accountGroup.setVisibleItemCount(1);
         accounts.setVisibleItemCount(1);
+        updateEntriesList();
     }
 
     private void updateEntriesList() {

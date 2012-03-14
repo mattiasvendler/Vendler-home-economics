@@ -41,7 +41,7 @@ public class Login extends Composite {
 
                     @Override
                     public void onSuccess(Boolean result) {
-                        Content.getInstance().setContent(new BlancPanel());
+                        RootContainer.setContent(new BlancPanel());
                         Head.getInstance().setStatus(messages.loggedIn());
                     }
                 });

@@ -1,9 +1,7 @@
 package se.vendler.webclient.client;
 
 import com.google.gwt.user.client.ui.*;
-import se.vendler.webclient.client.panels.Head;
-import se.vendler.webclient.client.panels.Login;
-import se.vendler.webclient.client.panels.Menu;
+import se.vendler.webclient.client.panels.*;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 
@@ -27,9 +25,9 @@ public class Entries implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        RootPanel.get("head").add(Head.getInstance());
-        RootPanel.get("menu").add(new Menu());
-        RootPanel.get("content").add(new Login());
+//        RootPanel.get("head").add(Head.getInstance());
+//        RootPanel.get("menu").add(new Menu());
+        RootPanel.get("content").add(RootContainer.get());
     }
 
     /**

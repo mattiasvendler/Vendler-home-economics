@@ -27,7 +27,7 @@ public class Menu extends Composite{
     private class EntriesButtonClickHandler implements ClickHandler {
         @Override
         public void onClick(ClickEvent event) {
-            Content.getInstance().setContent(new EntriesPanel());
+            RootContainer.setContent(new EntriesPanel());
         }
     }
 }
