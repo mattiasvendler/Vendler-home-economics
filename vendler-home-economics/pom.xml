@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>se.vendler</groupId>
@@ -13,6 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>3.1.0.RELEASE</spring.version>
+        <build.output.directory>/tmp/target</build.output.directory>
     </properties>
     <build>
         <plugins>
@@ -27,6 +29,10 @@
                 </configuration>
             </plugin>
         </plugins>
+        <directory>${build.output.directory}/${artifactId}-${version}/target</directory>
+        <outputDirectory>${build.output.directory}/${artifactId}-${version}/target/classes</outputDirectory>
+        <testOutputDirectory>${build.output.directory}/${artifactId}-${version}/target/test-classes</testOutputDirectory>
+
     </build>
     <dependencies>
         <dependency>
@@ -40,6 +46,7 @@
         <!--<module>gwt-client</module>-->
         <!--<module>vhe-rest-service</module>-->
         <module>home-economics</module>
-    <module>web-client</module>
-  </modules>
+        <module>web-client</module>
+        <module>vhe-android</module>
+    </modules>
 </project>
