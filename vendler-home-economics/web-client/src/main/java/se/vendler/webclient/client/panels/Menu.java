@@ -15,19 +15,33 @@ import se.vendler.webclient.client.Content;
  * Time: 8:39 PM
  */
 public class Menu extends Composite{
+
+    private Button entriesButton;
+
     public Menu() {
         VerticalPanel verticalPanel = new VerticalPanel();
         initWidget(verticalPanel);
         verticalPanel.add(new Label("MENU"));
-        Button entriesButton = new Button("Lägg till entries");
+        entriesButton = new Button("Lägg till entries");
         verticalPanel.add(entriesButton);
         entriesButton.addClickHandler(new EntriesButtonClickHandler());
+        Button bankImportButton = new Button("Bank import");
+        bankImportButton.addClickHandler(new BankImportButtonClickHandler());
+        verticalPanel.add(bankImportButton);
     }
 
     private class EntriesButtonClickHandler implements ClickHandler {
         @Override
         public void onClick(ClickEvent event) {
             RootContainer.setContent(new EntriesPanel());
+        }
+    }
+
+    private class BankImportButtonClickHandler implements ClickHandler{
+
+        @Override
+        public void onClick(ClickEvent clickEvent) {
+            RootContainer.setContent(new BankImportPanel());
         }
     }
 }

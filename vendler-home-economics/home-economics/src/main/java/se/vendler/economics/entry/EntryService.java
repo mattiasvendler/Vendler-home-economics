@@ -12,4 +12,6 @@ public interface EntryService {
     List<Entry> addEntry(String text, String account, String amount, Date date);
 
     List<Entry> getEntries(String userId);
+
+    List<Entry> extractEntries(String importString);
 }

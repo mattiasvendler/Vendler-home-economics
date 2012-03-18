@@ -18,6 +18,8 @@ public interface EntriesController extends RemoteService {
 
     List<Entry> getAllEntries(String userId);
 
+    List<Entry> importEntries(String importString);
+
     /**
      * Utility/Convenience class.
      * Use EntriesController.App.getInstance() to access static instance of EntriesControllerAsync

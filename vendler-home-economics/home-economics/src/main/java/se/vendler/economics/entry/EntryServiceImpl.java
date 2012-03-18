@@ -31,4 +31,15 @@ public class EntryServiceImpl implements EntryService{
     public List<Entry> getEntries(String userId) {
         return entryDAO.getAllEntries(userId);
     }
+
+    @Override
+    public List<Entry> extractEntries(String importString) {
+        String[] split1 = importString.split("\\n");
+        for (String s : split1) {
+
+            String[] split = s.split("\\t");
+            int i  = split.length;
+        }
+        return null;
+    }
 }
