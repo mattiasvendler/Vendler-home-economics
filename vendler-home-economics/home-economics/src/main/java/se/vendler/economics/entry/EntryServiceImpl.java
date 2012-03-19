@@ -5,6 +5,10 @@ import org.springframework.stereotype.Component;
 import se.vendler.economics.account.Account;
 import se.vendler.economics.account.AccountService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -34,12 +38,22 @@ public class EntryServiceImpl implements EntryService{
 
     @Override
     public List<Entry> extractEntries(String importString) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String[] split1 = importString.split("\\n");
+        List<Entry> entries = new ArrayList<Entry>();
         for (String s : split1) {
 
             String[] split = s.split("\\t");
-            int i  = split.length;
+            try {
+                entries.add(new Entry(split[2],null,Double.valueOf(split[3].replace(",",".").replace(" ","")),simpleDateFormat.parse(split[1])));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        List<Account> accounts = accountService.getAccounts(1);
+        for (Entry entry : entries) {
+            entry.setAccount(accounts.get(0));
+        }
+        return entries;
     }
 }

@@ -33,7 +33,7 @@ public class BankImportPanel extends Composite {
         initWidget(flowPanel);
         textArea = new TextArea();
         textArea.setVisibleLines(30);
-        textArea.setWidth("200");
+        textArea.setWidth("800px");
         flowPanel.add(textArea);
         Button button = new Button("Import");
         flowPanel.add(button);
