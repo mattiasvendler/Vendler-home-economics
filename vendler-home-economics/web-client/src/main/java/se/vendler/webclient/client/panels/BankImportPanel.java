@@ -18,11 +18,9 @@ import se.vendler.webclient.client.model.Entry;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
  * User: mattias
  * Date: 3/18/12
  * Time: 9:01 PM
- * To change this template use File | Settings | File Templates.
  */
 public class BankImportPanel extends Composite {
     private EntriesControllerAsync entriesControllerAsync = EntriesController.App.getInstance();
@@ -52,8 +50,7 @@ public class BankImportPanel extends Composite {
 
                 @Override
                 public void onSuccess(List<Entry> entries) {
-                    entries.size();
-                    //To change body of implemented methods use File | Settings | File Templates.
+                    RootContainer.setContent(new BankImportEntriesPanel(entries));
                 }
             });
         }
