@@ -53,8 +53,7 @@ public class AccountControllerImpl extends RemoteServiceServlet implements Accou
     }
     @Override
     public List<Account> getAccounts() {
-        List<Account> accounts = accountRepository.getAccounts(1);
-        return accounts;
+        return accountRepository.getAccounts(1);
     }
 
     @Override

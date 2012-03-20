@@ -18,10 +18,7 @@ public class ClientControllerImpl extends RemoteServiceServlet implements Client
         if (session == null) {
             return false;
         }
-        if (session.getAttribute("userId") != null) {
-          return true;
-        }
-        return false;
+        return session.getAttribute("userId") != null;
     }
 
     @Override

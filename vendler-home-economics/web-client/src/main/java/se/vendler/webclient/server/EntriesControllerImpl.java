@@ -30,8 +30,7 @@ public class EntriesControllerImpl extends RemoteServiceServlet implements Entri
     @Override
     public List<Entry> getAllEntries(String userId) {
         List<se.vendler.economics.entry.Entry> entries = entryService.getEntries(userId);
-        List<Entry> entriesList = transformEntries(entries);
-        return entriesList;
+        return transformEntries(entries);
     }
 
     private List<Entry> transformEntries(List<se.vendler.economics.entry.Entry> entries) {

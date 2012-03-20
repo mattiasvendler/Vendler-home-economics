@@ -21,6 +21,6 @@ public class BeanLocator {
         if (beanLocator == null) {
             beanLocator=new BeanLocator();
         }
-        return (T) getApplicationContext().getBean(t);
+        return getApplicationContext().getBean(t);
     }
 }

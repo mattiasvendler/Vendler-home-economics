@@ -42,14 +42,13 @@ public class EntryDAO {
             @Override
             public Entry mapRow(ResultSet rs, int rowNum) throws SQLException {
                 AccountImpl account = new AccountImpl(rs.getString("acc_name"),rs.getString("acc_nr"),rs.getInt("acc_id"));
-                Entry entry = new Entry(
+                return new Entry(
                         rs.getInt("entry_id"),
                         rs.getString("text"),
                         account,
                         rs.getDouble("amount"),
                         rs.getDate("date")
                 );
-                return entry;
             }
         });
     }
