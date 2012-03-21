@@ -9,4 +9,4 @@ create table entry(
   entry_date date not null,
    amount double default 0,
     primary key(id)
-) engine INNODB;
+) engine INNODB default charset=latin1;
