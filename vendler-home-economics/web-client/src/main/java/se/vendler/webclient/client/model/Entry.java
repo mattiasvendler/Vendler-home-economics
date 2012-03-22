@@ -1,6 +1,7 @@
 package se.vendler.webclient.client.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**

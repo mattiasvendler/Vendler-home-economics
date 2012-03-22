@@ -4,14 +4,18 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import se.vendler.webclient.client.AccountController;
 import se.vendler.webclient.client.AccountControllerAsync;
+import se.vendler.webclient.client.EntriesController;
+import se.vendler.webclient.client.EntriesControllerAsync;
 import se.vendler.webclient.client.model.Account;
 import se.vendler.webclient.client.model.AccountGroup;
 import se.vendler.webclient.client.model.Entry;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +26,8 @@ import java.util.List;
 public class BankImportEntriesPanel extends Composite {
     private FlexTable flexTable;
     private AccountControllerAsync accountControllerAsync = AccountController.App.getInstance();
+    private EntriesControllerAsync entriesControllerAsync = EntriesController.App.getInstance();
+    private DateTimeFormat df = DateTimeFormat.getFormat("yyyy-MM-dd");
 
     public BankImportEntriesPanel(List<Entry> entries) {
         VerticalPanel verticalPanel = new VerticalPanel();
@@ -42,15 +48,32 @@ public class BankImportEntriesPanel extends Composite {
         @Override
         public void onClick(ClickEvent event) {
             for (int i = 1; i <= flexTable.getRowCount(); i++) {
-                for (int j = 0; j <= flexTable.getCellCount(i); j++) {
-                }
+                    String text = flexTable.getText(i,1);
+                    String date = flexTable.getText(i,2);
+//                    flexTable.getText(i,3);
+                ListBox accountListBox = (ListBox)flexTable.getWidget(i,4);
+                    String account = accountListBox.getValue(accountListBox.getSelectedIndex());
+                    String amount = flexTable.getText(i, 5);
+                ListBox addRemoveListBox = (ListBox) flexTable.getWidget(i,6);
+                Entry entry = new Entry(text,account,amount,df.parse(date));
+                entriesControllerAsync.addEntry(entry,new AsyncCallback<Void>() {
+                    @Override
+                    public void onFailure(Throwable caught) {
+                        //To change body of implemented methods use File | Settings | File Templates.
+                    }
+
+                    @Override
+                    public void onSuccess(Void result) {
+                        //To change body of implemented methods use File | Settings | File Templates.
+                    }
+                });
             }
         }
     }
 
     private void addRow(Entry entries, int rowNumber) {
         Label text = new Label(entries.getText());
-        Label date = new Label(entries.getDate().toString());
+        Label date = new Label(df.format(entries.getDate()));
         ListBox accountGroups = getAccountGroups();
         int accountGroupId = accountGroups.getSelectedIndex();
         ListBox accounts = getAccounts(1);
