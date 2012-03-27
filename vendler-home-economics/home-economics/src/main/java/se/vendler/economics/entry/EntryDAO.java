@@ -52,4 +52,22 @@ public class EntryDAO {
             }
         });
     }
+
+    public Account getEntryBuyEntryText(String text) {
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("p_text",text);
+          List<Account> accounts = getTemplate().query("call q_get_entry_by_entry_text(:p_text);",source,new RowMapper<Account>() {
+              @Override
+              public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
+                  AccountImpl account = new AccountImpl();
+                  account.setAccountName(rs.getString("name"));
+                  account.setAccountNumber(rs.getString("account_nr"));
+                  account.setId(rs.getInt("accountId"));
+                  account.setAccountGroupId(rs.getInt("groupId"));
+                  return account;
+              }
+          });
+
+        return accounts.size()>0?accounts.get(0):null;
+    }
 }

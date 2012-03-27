@@ -1,7 +1,6 @@
 package se.vendler.webclient.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import se.vendler.economics.EconomicsService;
 import se.vendler.economics.entry.EntryService;
 import se.vendler.economics.util.spring.BeanLocator;
 import se.vendler.webclient.client.EntriesController;
@@ -18,8 +17,9 @@ import java.util.List;
 public class EntriesControllerImpl extends RemoteServiceServlet implements EntriesController {
     private static List<Entry> entries = new ArrayList<Entry>();
     private EntryService entryService;
+
     public EntriesControllerImpl() {
-        entryService= BeanLocator.getBean(EntryService.class);
+        entryService = BeanLocator.getBean(EntryService.class);
     }
 
     @Override
@@ -36,11 +36,12 @@ public class EntriesControllerImpl extends RemoteServiceServlet implements Entri
     private List<Entry> transformEntries(List<se.vendler.economics.entry.Entry> entries) {
         List<Entry> entriesList = new ArrayList<Entry>();
         for (se.vendler.economics.entry.Entry entry : entries) {
-            Entry e = new Entry(entry.getId()+"",entry.getText(),entry.getAccount().getAccountName(),entry.getAmount().toString(),entry.getDate());
+            Entry e = new Entry(entry.getId() + "", entry.getText(), entry.getAccount().getAccountName(), entry.getAmount().toString(), entry.getDate(), entry.getAccount().getAccountGroupId());
             entriesList.add(e);
         }
         return entriesList;
     }
+
 
     @Override
     public List<Entry> importEntries(String importString) {

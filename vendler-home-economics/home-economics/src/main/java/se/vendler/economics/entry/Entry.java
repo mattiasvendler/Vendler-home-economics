@@ -2,6 +2,7 @@ package se.vendler.economics.entry;
 
 import se.vendler.economics.account.Account;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  * Date: 3/7/12
  * Time: 8:47 PM
  */
-public class Entry {
+public class Entry implements Serializable{
     private String text;
     private Account account;
     private Double amount;

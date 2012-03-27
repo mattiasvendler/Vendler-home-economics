@@ -51,8 +51,12 @@ public class EntryServiceImpl implements EntryService{
             }
         }
         List<Account> accounts = accountService.getAccounts(1);
+
         for (Entry entry : entries) {
-            entry.setAccount(accounts.get(0));
+            entry.setAccount(entryDAO.getEntryBuyEntryText(entry.getText()));;
+            if (entry.getAccount() == null) {
+                entry.setAccount(accounts.get(0));
+            }
         }
         return entries;
     }

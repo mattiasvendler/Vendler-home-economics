@@ -19,6 +19,7 @@ public interface AccountController extends RemoteService {
     List<Account> getAccounts();
     List<Account> getAccounts(Integer id);
     List<AccountGroup> getAccountGroups();
+
     /**
      * Utility/Convenience class.
      * Use AccountController.App.getInstance() to access static instance of AccountControllerAsync

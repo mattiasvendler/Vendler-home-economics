@@ -15,8 +15,14 @@ public class Entry implements Serializable{
     private String account;
     private String amount;
     private Date date;
+    private Integer accountGroupId;
 
     public Entry() {
+    }
+
+    public Entry(String id, String text, String account, String amount,Date date,Integer accountGroupId) {
+        this(id,text,account,amount,date);
+        this.accountGroupId=accountGroupId;
     }
 
     public Entry(String id, String text, String account, String amount,Date date) {
@@ -35,6 +41,14 @@ public class Entry implements Serializable{
 
     public Entry(String text, String account, String entryAmount, Date date) {
         this(null,text,account,entryAmount,date);
+    }
+
+    public Integer getAccountGroupId() {
+        return accountGroupId;
+    }
+
+    public void setAccountGroupId(Integer accountGroupId) {
+        this.accountGroupId = accountGroupId;
     }
 
     public String getId() {

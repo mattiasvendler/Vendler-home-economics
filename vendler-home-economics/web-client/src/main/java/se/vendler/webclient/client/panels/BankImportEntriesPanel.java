@@ -74,8 +74,9 @@ public class BankImportEntriesPanel extends Composite {
     private void addRow(Entry entries, int rowNumber) {
         Label text = new Label(entries.getText());
         Label date = new Label(df.format(entries.getDate()));
-        ListBox accountGroups = getAccountGroups();
-        int accountGroupId = accountGroups.getSelectedIndex();
+        ListBox accountGroups = getAccountGroups(entries.getAccountGroupId());
+//        int accountGroupId = accountGroups.getSelectedIndex();
+//        accountGroups.setSelectedIndex(accountGroupId);
         ListBox accounts = getAccounts(1);
         Label amount = new Label(entries.getAmount());
         ListBox addRemoveListBox = new ListBox();
@@ -129,7 +130,7 @@ public class BankImportEntriesPanel extends Composite {
         }
     }
 
-    private ListBox getAccountGroups() {
+    private ListBox getAccountGroups(final Integer accountGroupId) {
         final ListBox listBox = new ListBox();
         accountControllerAsync.getAccountGroups(new AsyncCallback<List<AccountGroup>>() {
             @Override
@@ -139,11 +140,16 @@ public class BankImportEntriesPanel extends Composite {
 
             @Override
             public void onSuccess(List<AccountGroup> result) {
+                int selectedIndex = 1;
                 for (int i = 0; i < result.size(); i++) {
                     AccountGroup accountGroup = result.get(i);
                     listBox.addItem(accountGroup.getName(), accountGroup.getId() + "");
+                    if (accountGroupId != null && accountGroupId.intValue() == accountGroup.getId()) {
+                        selectedIndex=i+1;
+                    }
+
                 }
-                listBox.setSelectedIndex(1);
+                listBox.setSelectedIndex(selectedIndex);
             }
         });
         return listBox;

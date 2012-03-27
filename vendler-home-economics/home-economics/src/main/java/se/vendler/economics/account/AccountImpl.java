@@ -10,8 +10,14 @@ public class AccountImpl implements Account{
     protected String accountNumber;
     protected Double balance;
     private int id;
+    private int accountGroupId;
 
     public AccountImpl() {
+    }
+
+    public AccountImpl(String accountName, String accountNumber, int id, int accountGroupId) {
+        this(accountName,accountNumber,id);
+        this.accountGroupId=accountGroupId;
     }
 
     public AccountImpl(String accountName, String accountNumber, int id) {
@@ -20,9 +26,14 @@ public class AccountImpl implements Account{
         this.id = id;
     }
 
+
     @Override
     public String getAccountName() {
         return accountName;
+    }
+
+    public void setAccountGroupId(int accountGroupId) {
+        this.accountGroupId = accountGroupId;
     }
 
     @Override
@@ -57,5 +68,10 @@ public class AccountImpl implements Account{
     @Override
     public int getId() {
         return id;
+    }
+
+    @Override
+    public int getAccountGroupId() {
+        return accountGroupId;
     }
 }

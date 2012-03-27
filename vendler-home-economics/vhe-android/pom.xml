@@ -33,7 +33,7 @@
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
                     <resourceDirectory>${project.basedir}/res</resourceDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
-                    <genDirectory>${build.output.directory}/${artifactId}-${version}/target/generated-sources/r</genDirectory>
+                    <genDirectory>${build.output.directory}/${artifactId}-${version}/target/generated-sources</genDirectory>
                     <sdk>
                         <platform>15</platform>
                     </sdk>

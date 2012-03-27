@@ -21,4 +21,6 @@ public interface Account extends Serializable{
     void setBalance(Double balance);
 
     int getId();
+
+    int getAccountGroupId();
 }
