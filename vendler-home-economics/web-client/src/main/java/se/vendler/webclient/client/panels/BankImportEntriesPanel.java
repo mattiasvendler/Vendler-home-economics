@@ -105,7 +105,7 @@ public class BankImportEntriesPanel extends Composite {
 
             @Override
             public void onSuccess(List<Account> result) {
-                int i =1;
+                int i =0;
                 int selectedIndex = i;
                 for (Account account : result) {
                     if (selectedAccount != null && selectedAccount.equals(account.getAccountName())) {
