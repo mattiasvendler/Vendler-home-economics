@@ -58,7 +58,7 @@ public class AccountDAO {
     public Account getAccount(String accountNr) {
         MapSqlParameterSource source = new MapSqlParameterSource();
         source.addValue("p_accountNr",accountNr);
-        return getTemplate().query("call b_get_account(:p_accountNr);",source,new RowMapper<Account>() {
+        List<Account> accountList = getTemplate().query("call b_get_account(:p_accountNr);", source, new RowMapper<Account>() {
             @Override
             public Account mapRow(ResultSet rs, int rowNum) throws SQLException {
                 AccountImpl account = new AccountImpl();
@@ -68,6 +68,10 @@ public class AccountDAO {
                 account.setId(rs.getInt("id"));
                 return account;
             }
-        }).get(0);
+        });
+        if (accountList != null && accountList.size() > 0) {
+            return accountList.get(0);
+        }
+        return null;
     }
 }

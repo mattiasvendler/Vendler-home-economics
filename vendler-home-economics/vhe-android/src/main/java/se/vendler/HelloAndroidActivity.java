@@ -1,8 +1,10 @@
 package se.vendler;
 
+import android.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class HelloAndroidActivity extends Activity {
 
@@ -18,8 +20,9 @@ public class HelloAndroidActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
-        setContentView(R.layout.main);
+        setContentView(R.layout.simple_spinner_item);
     }
+
 
 }
 

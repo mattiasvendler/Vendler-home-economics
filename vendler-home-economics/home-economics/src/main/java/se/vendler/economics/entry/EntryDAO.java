@@ -1,5 +1,6 @@
 package se.vendler.economics.entry;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -22,19 +23,21 @@ import java.util.List;
 public class EntryDAO {
     @Autowired
     private DataSource dataSource;
-
+    private Logger logger = Logger.getLogger(this.getClass());
     private NamedParameterJdbcTemplate getTemplate() {
         return new NamedParameterJdbcTemplate(dataSource);
     }
 
     public void addEntry(Entry entry) {
-        MapSqlParameterSource source = new MapSqlParameterSource();
-        source.addValue("p_text",entry.getText());
-        source.addValue("p_account_id",entry.getAccount().getId());
-        source.addValue("p_amount",entry.getAmount());
-        source.addValue("p_date",entry.getDate());
-        String sql = "call vhe.b_add_entry(:p_text,:p_account_id,:p_amount,:p_date)";
-        getTemplate().update(sql,source);
+        if (entry != null && entry.getAccount() != null) {
+            MapSqlParameterSource source = new MapSqlParameterSource();
+            source.addValue("p_text", entry.getText());
+            source.addValue("p_account_id", entry.getAccount().getId());
+            source.addValue("p_amount", entry.getAmount());
+            source.addValue("p_date", entry.getDate());
+            String sql = "call vhe.b_add_entry(:p_text,:p_account_id,:p_amount,:p_date)";
+            getTemplate().update(sql, source);
+        }
     }
 
     public List<Entry> getAllEntries(String userId) {

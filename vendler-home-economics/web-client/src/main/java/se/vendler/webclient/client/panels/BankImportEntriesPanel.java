@@ -47,24 +47,24 @@ public class BankImportEntriesPanel extends Composite {
     private class ImportClickHandler implements ClickHandler {
         @Override
         public void onClick(ClickEvent event) {
-            for (int i = 1; i <= flexTable.getRowCount(); i++) {
+            for (int i = 1; i < flexTable.getRowCount(); i++) {
                     String text = flexTable.getText(i,1);
                     String date = flexTable.getText(i,2);
 //                    flexTable.getText(i,3);
                 ListBox accountListBox = (ListBox)flexTable.getWidget(i,4);
-                    String account = accountListBox.getValue(accountListBox.getSelectedIndex());
+                    String account = accountListBox.getItemText(accountListBox.getSelectedIndex());
                     String amount = flexTable.getText(i, 5);
                 ListBox addRemoveListBox = (ListBox) flexTable.getWidget(i,6);
                 Entry entry = new Entry(text,account,amount,df.parse(date));
                 entriesControllerAsync.addEntry(entry,new AsyncCallback<Void>() {
                     @Override
                     public void onFailure(Throwable caught) {
-                        //To change body of implemented methods use File | Settings | File Templates.
+
                     }
 
                     @Override
                     public void onSuccess(Void result) {
-                        //To change body of implemented methods use File | Settings | File Templates.
+
                     }
                 });
             }

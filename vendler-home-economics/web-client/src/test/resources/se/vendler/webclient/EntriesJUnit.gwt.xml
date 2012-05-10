@@ -2,8 +2,12 @@
 <module>
   <!-- Inherit our applications main module.                      -->
   <inherits name='se.vendler.webclient.Entries' />
+  <inherits name="com.gwtext.GwtExt"/>
 
   <!-- Specify the path to any remote services.                   -->
   <servlet path="/Entries/greet" class="se.vendler.webclient.server.GreetingServiceImpl" />
+  <stylesheet src="js/ext/resources/css/ext-all.css"/>
+  <script src="js/ext/adapter/ext/ext-base.js"/>
+  <script src="js/ext/ext-all.js"/>
 
 </module>

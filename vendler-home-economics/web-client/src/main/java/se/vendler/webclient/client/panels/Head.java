@@ -1,11 +1,8 @@
 package se.vendler.webclient.client.panels;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
-import se.vendler.webclient.client.Messages;
 
 /**
  * User: Mattias Vendler

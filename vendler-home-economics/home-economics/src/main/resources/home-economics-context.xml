@@ -9,7 +9,7 @@
     <context:annotation-config/>
     <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:5521/vhe"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:5520/vhe"/>
         <property name="username" value="msandbox"/>
         <property name="password" value="msandbox"/>
     </bean>
