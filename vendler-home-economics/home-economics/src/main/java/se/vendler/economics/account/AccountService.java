@@ -10,5 +10,5 @@ import java.util.List;
 public interface AccountService {
     List<Account> getAccounts(Integer userId);
 
-    Account getAccount(String accountNr);
+    Account getAccount(Integer accountId);
 }

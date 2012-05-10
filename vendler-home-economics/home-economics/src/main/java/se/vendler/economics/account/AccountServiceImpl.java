@@ -20,7 +20,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public Account getAccount(String accountNr) {
+    public Account getAccount(Integer accountNr) {
         return dao.getAccount(accountNr);
     }
 }

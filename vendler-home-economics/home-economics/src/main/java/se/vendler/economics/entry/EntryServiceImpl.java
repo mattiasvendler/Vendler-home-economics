@@ -25,7 +25,7 @@ public class EntryServiceImpl implements EntryService{
     private EntryDAO entryDAO;
     @Override
     public List<Entry> addEntry(String text, String accountNr, String amount, Date date) {
-        Account account = accountService.getAccount(accountNr);
+        Account account = accountService.getAccount(Integer.valueOf(accountNr));
         Entry entry = new Entry(text,account,Double.valueOf(amount),date);
         entryDAO.addEntry(entry);
         return null;

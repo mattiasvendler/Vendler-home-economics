@@ -52,10 +52,10 @@ public class BankImportEntriesPanel extends Composite {
                     String date = flexTable.getText(i,2);
 //                    flexTable.getText(i,3);
                 ListBox accountListBox = (ListBox)flexTable.getWidget(i,4);
-                    String account = accountListBox.getItemText(accountListBox.getSelectedIndex());
+                    String accountId = accountListBox.getValue(accountListBox.getSelectedIndex());
                     String amount = flexTable.getText(i, 5);
                 ListBox addRemoveListBox = (ListBox) flexTable.getWidget(i,6);
-                Entry entry = new Entry(text,account,amount,df.parse(date));
+                Entry entry = new Entry(text,accountId,amount,df.parse(date));
                 entriesControllerAsync.addEntry(entry,new AsyncCallback<Void>() {
                     @Override
                     public void onFailure(Throwable caught) {

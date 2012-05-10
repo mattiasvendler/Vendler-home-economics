@@ -28,7 +28,7 @@ public class AccountRepository {
         for (se.vendler.economics.account.Account account : accounts) {
             Account modelAccount = new Account();
             modelAccount.setAccountName(account.getAccountName());
-            modelAccount.setAccountNumber(Integer.valueOf(account.getId()).toString());
+            modelAccount.setAccountNumber(String.valueOf(account.getId()));
             modelAccounts.add(modelAccount);
         }
         return modelAccounts;
