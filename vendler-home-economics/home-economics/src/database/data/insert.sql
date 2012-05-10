@@ -37,10 +37,12 @@ insert ignore into account (id,name,account_nr) values (501,"El","501");
 insert ignore into account (id,name,account_nr) values (502,"Vatten","502");
 insert ignore into account (id,name,account_nr) values (503,"Sopor","503");
 insert ignore into account (id,name,account_nr) values (504,"Försäkring","504");
+insert ignore into account (id,name,account_nr) values (505,"Medlemsavgift","505");
 insert ignore into account_group_accounts (account_id,account_group_id) values (501,500);
 insert ignore into account_group_accounts (account_id,account_group_id) values (502,500);
 insert ignore into account_group_accounts (account_id,account_group_id) values (503,500);
 insert ignore into account_group_accounts (account_id,account_group_id) values (504,500);
+insert ignore into account_group_accounts (account_id,account_group_id) values (505,500);
 
 --TRANSPORT
 insert ignore into account_group (id,name) values (600,"Transport");
