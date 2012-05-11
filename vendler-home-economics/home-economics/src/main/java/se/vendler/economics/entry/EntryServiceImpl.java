@@ -50,7 +50,7 @@ public class EntryServiceImpl implements EntryService{
                 e.printStackTrace();
             }
         }
-        List<Account> accounts = accountService.getAccounts(1);
+        List<Account> accounts = accountService.getAccounts(100);
 
         for (Entry entry : entries) {
             entry.setAccount(entryDAO.getEntryBuyEntryText(entry.getText()));;
