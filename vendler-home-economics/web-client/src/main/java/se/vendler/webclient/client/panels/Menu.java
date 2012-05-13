@@ -17,17 +17,22 @@ import se.vendler.webclient.client.Content;
 public class Menu extends Composite{
 
     private Button entriesButton;
+    private final Button bankImportButton;
+    private final Button entriesStatisticsButton;
 
     public Menu() {
         VerticalPanel verticalPanel = new VerticalPanel();
         initWidget(verticalPanel);
         verticalPanel.add(new Label("MENU"));
         entriesButton = new Button("Lägg till entries");
-        verticalPanel.add(entriesButton);
         entriesButton.addClickHandler(new EntriesButtonClickHandler());
-        Button bankImportButton = new Button("Bank import");
+        verticalPanel.add(entriesButton);
+        bankImportButton = new Button("Bank import");
         bankImportButton.addClickHandler(new BankImportButtonClickHandler());
         verticalPanel.add(bankImportButton);
+        entriesStatisticsButton = new Button("Statistik");
+        entriesStatisticsButton.addClickHandler(new StatisticsButtonClickHandler());
+        verticalPanel.add(entriesStatisticsButton);
     }
 
     private class EntriesButtonClickHandler implements ClickHandler {
@@ -42,6 +47,14 @@ public class Menu extends Composite{
         @Override
         public void onClick(ClickEvent clickEvent) {
             RootContainer.setContent(new BankImportPanel());
+        }
+    }
+
+    private class StatisticsButtonClickHandler implements ClickHandler {
+
+        @Override
+        public void onClick(ClickEvent event) {
+            RootContainer.setContent(new EntriesStatisticsPanel());
         }
     }
 }

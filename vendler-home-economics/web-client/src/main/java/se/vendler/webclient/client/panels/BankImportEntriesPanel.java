@@ -66,7 +66,7 @@ public class BankImportEntriesPanel extends Composite {
 
                             @Override
                             public void onSuccess(Void result) {
-
+                                RootContainer.setContent(new BankImportPanel());
                             }
                         });
                     }
