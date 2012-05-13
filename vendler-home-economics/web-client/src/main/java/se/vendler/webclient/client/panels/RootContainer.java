@@ -35,10 +35,8 @@ public class RootContainer extends Composite {
     }
 
     public static void setContent(Composite composite) {
-        int widgetIndex = dockPanel.getWidgetIndex(content.asWidget());
-//        if (widgetIndex > 0) {
-            dockPanel.getWidget(CENTER_PANEL_INDEX).removeFromParent();
-//        }
+        dockPanel.getWidget(CENTER_PANEL_INDEX).removeFromParent();
         dockPanel.add(composite, DockPanel.CENTER);
+        content=composite;
     }
 }
