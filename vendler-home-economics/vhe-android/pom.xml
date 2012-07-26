@@ -36,6 +36,7 @@
                     <genDirectory>${build.output.directory}/${artifactId}-${version}/target/generated-sources</genDirectory>
                     <sdk>
                         <platform>15</platform>
+                        <path>${sdk.path}</path>
                     </sdk>
                     <deleteConflictingFiles>true</deleteConflictingFiles>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
